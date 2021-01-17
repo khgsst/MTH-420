@@ -1,12 +1,12 @@
 # Problem 1
 name="Labib Zakaria"
-if name== "Labib Zakaria":
+if name=="Labib Zakaria":
     print("Hello, world!")
 # Problem 2
 def sphere_volume(r):
     """Return the volume of a sphere with specified radius"""
     return (4*3.14159*r**3)/3
-if name== "Labib Zakaria":
+if name=="Labib Zakaria":
     print(sphere_volume(1))
 # Problem 3
 def isolate(a,b,c,d,e):
