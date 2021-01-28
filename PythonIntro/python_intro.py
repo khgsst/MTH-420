@@ -22,17 +22,15 @@ def isolate(a,b,c,d,e):
     return L
 isolate(1,2,3,4,5)
 # Problem 4
-def first_half():
+def first_half(word):
     """Display the first half of the input string (excluding the middle character) if it exists"""
-    i=input("enter string:")
-    return print(i[:len(i)//2])
-first_half()
-first_half()
-def backward():
+    return print(word[:len(word)//2])
+first_half("it")
+first_half("toot")
+def backward(word):
     """Display the input string backwards"""
-    n=input("enter string:")
-    return print(n[::-1])
-backward()
+    return print(word[::-1])
+backward("nim")
 # Problem 5
 def list_ops():
     """Apply list operations & display resulting list"""
@@ -61,7 +59,7 @@ list_ops()
 # Problem 6
 def pig_latin(word):
     """Translate given word into Pig Latin"""
-    vowels=('a','e','i','o','u','y')
+    vowels=('a','e','i','o','u')
     if word.lower().startswith(vowels):
        r=word.lower()+"hay"
     else:
