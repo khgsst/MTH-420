@@ -12,7 +12,7 @@ def prob1(L):
     """Return the minimum, maximum, and average of the entries of L
     (in that order).
     """
-    return print(min(L),max(L),sum(L)/len(L))
+    return min(L),max(L),sum(L)/len(L)
     raise NotImplementedError("Problem 1 Incomplete")
 prob1((1,2,3))
 
@@ -72,7 +72,7 @@ def hypot(a, b):
     b2=cal.prod(b,b)
     z=cal.sum(a2,b2)
     c=cal.sqrt(z)
-    return print(a,b,c)
+    return c
     """Calculate and return the length of the hypotenuse of a right triangle.
     Do not use any functions other than those that are imported from your
     'calculator' module.
@@ -92,7 +92,7 @@ def power_set(A):
     for z in chain.from_iterable(combinations(A, r) for r in range(1,len(A)+1)):
         y=set(z)
         l.append(y)
-    return print(l)
+    return l
     """Use itertools to compute the power set of A.
     Parameters:
         A (iterable): a str, list, set, tuple, or other iterable collection.
