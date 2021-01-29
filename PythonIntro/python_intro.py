@@ -24,11 +24,13 @@ isolate(1,2,3,4,5)
 # Problem 4
 def first_half(word):
     """Display the first half of the input string (excluding the middle character) if it exists"""
+    print(word[:len(word)//2])
     return word[:len(word)//2]
 first_half("it")
-first_half("toot")
+first_half("too")
 def backward(word):
     """Display the input string backwards"""
+    print(word[::-1])
     return word[::-1]
 backward("nim")
 # Problem 5
@@ -54,6 +56,7 @@ def list_ops():
     print(l)
     # 6: Add the string "hunter" to the last entry in the list
     l[len(l)-1]=l[len(l)-1]+"hunter"
+    print(1)
     return l
 list_ops()
 # Problem 6
@@ -64,6 +67,7 @@ def pig_latin(word):
        r=word.lower()+"hay"
     else:
        r=word[1:]+word[0].lower()+"ay"
+    print(r)
     return r                
 pig_latin("Spell" )
 pig_latin("it")
@@ -75,12 +79,14 @@ def palindrome():
             u=v*t
             q=str(u)
             if q==q[::-1]:
+               print(u)
                return u
 palindrome()    
 # Problem 8
 def alt_harmonic(n):
     """Find the sum of the first n terms of the alternating harmonic sequence/nth partial sum of the alternating harmonic series"""
     s=sum([(-1)**(i+1)/(i) for i in range(1,n+1)])
+    print(s)
     return s
 alt_harmonic(3)
 alt_harmonic(500000)
