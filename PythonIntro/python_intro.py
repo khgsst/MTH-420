@@ -76,8 +76,9 @@ pig_latin("it")
 # Problem 7
 def palindrome():
     """Find the largest palindrome that is a product of three digit natural numbers"""
-    print(max(i*j for i in range(100,1000) for j in range(100,1000) if str(i*j) == str(i*j)[::-1]))
-    return max(i*j for i in range(100,1000) for j in range(100,1000) if str(i*j) == str(i*j)[::-1]) 
+    a=max([(i*j,i,j) for i in range(999,99,-1) for j in range(999,99,-1) if str(i*j) == str(i*j)[::-1]])
+    print(a,a[0])
+    return a[0]
 palindrome()    
 # Problem 8
 def alt_harmonic(n):
