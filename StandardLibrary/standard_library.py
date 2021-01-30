@@ -91,7 +91,11 @@ hypot(3,4)
 # Problem 4
 def power_set(A):
     l=[]
+<<<<<<< Updated upstream
     for z in chain.from_iterable(combinations(A, r) for r in range(len(A)+1)):
+=======
+    for z in chain.from_iterable(combinations(A, r) for r in range(0,len(A)+1)):
+>>>>>>> Stashed changes
         y=set(z)
         l.append(y)
         print(l)

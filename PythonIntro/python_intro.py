@@ -4,6 +4,8 @@
 <MTH 420>
 <1/22/21>
 """
+from itertools import product
+
 # Problem 1
 name="Labib Zakaria"
 if name=="Labib Zakaria":
@@ -74,13 +76,8 @@ pig_latin("it")
 # Problem 7
 def palindrome():
     """Find the largest palindrome that is a product of three digit natural numbers"""
-    for v in range(999,99,-1):
-        for t in range(v,99,-1):
-            u=v*t
-            q=str(u)
-            if q==q[::-1]:
-               print(u)
-               return u
+    print(max(i*j for i in range(100,1000) for j in range(100,1000) if str(i*j) == str(i*j)[::-1]))
+    return max(i*j for i in range(100,1000) for j in range(100,1000) if str(i*j) == str(i*j)[::-1]) 
 palindrome()    
 # Problem 8
 def alt_harmonic(n):
