@@ -159,7 +159,7 @@ def prob6():
     plt.colorbar(c)
     a.axis([-2*np.pi,2*np.pi,-2*np.pi,2*np.pi])
     b=plt.subplot(122)
-    d=b.contourf(X,Y,Z,20,cmap="coolwarm")
+    d=b.contour(X,Y,Z,20,cmap="coolwarm")
     plt.colorbar(d)
     b.axis([-2*np.pi,2*np.pi,-2*np.pi,2*np.pi])
     c=plt.show()
