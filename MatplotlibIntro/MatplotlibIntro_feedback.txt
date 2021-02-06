@@ -1,0 +1,32 @@
+02/05/21 23:01
+
+Problem 1 (5 points):
+Score += 5
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+Incorrect x limits
+	Correct response: (-2, 6)
+	Student response: (0.0, 1.0)
+Incorrect y limits
+	Correct response: (-6, 6)
+	Student response: (0.0, 1.0)
+Score += 6
+
+Problem 4 (10 points):
+Score += 10
+
+Problem 6 (10 points):
+Score += 10
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 46/50 = 92.0%
+
+Great job!
+
+-------------------------------------------------------------------------------
+
