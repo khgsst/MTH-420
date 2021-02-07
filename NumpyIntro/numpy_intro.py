@@ -27,7 +27,10 @@ def prob2():
 prob2()
 def prob3():
     A=np.triu(np.ones((7,7)))
+    print(A)
     B=np.tril(-1*np.ones((7,7)))+np.triu(5*np.ones((7,7)))
+    np.fill_diagonal(B,-1)
+    print(B)
     P=A@B@A
     P=P.astype(np.int64)
     print(P)
@@ -70,7 +73,8 @@ def prob5():
     C0=-2*np.ones((3,3))
     C=np.diag(np.diag(C0))
     print(C)
-    D1=np.hstack((np.zeros((3,3)),np.transpose(A),np.ones((3,3))))
+    I=np.diag(np.diag(np.ones((3,3))))
+    D1=np.hstack((np.zeros((3,3)),np.transpose(A),I))
     D2=np.hstack((A,np.zeros((2,5))))
     D3=np.hstack((B,np.zeros((3,2)),C))
     D=np.vstack((D1,D2,D3))
