@@ -28,8 +28,7 @@ prob2()
 def prob3():
     A=np.triu(np.ones((7,7)))
     print(A)
-    B=np.tril(-1*np.ones((7,7)))+np.triu(5*np.ones((7,7)))
-    np.fill_diagonal(B,-1)
+    B=np.tril(-1*np.ones((7,7)))+np.triu(5*np.ones((7,7)),1)
     print(B)
     P=A@B@A
     P=P.astype(np.int64)
