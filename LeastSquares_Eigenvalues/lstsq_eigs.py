@@ -58,7 +58,8 @@ def line_fit():
     a=plt.scatter(x1,y1)
     b=plt.plot(x[0]*x1+x[1])
     plt.ioff()
-    return x,a,b
+    e=plt.show()
+    return x,a,b,e
     raise NotImplementedError("Problem 2 Incomplete")
 
 line_fit()
@@ -84,14 +85,20 @@ def polynomial_fit():
     q9=A9@x9
     q12=A12@x12
     print(A3,A6,A9,A12,x3,x6,x9,x12,q3,q6,q9,q12)
-    plt.ion()
+    plt.subplot(2,2,1)
     a=plt.scatter(x1,y1)
     p3=plt.plot(x1,q3)
+    plt.subplot(2,2,2)
+    a=plt.scatter(x1,y1)
     p6=plt.plot(x1,q6)
+    plt.subplot(2,2,3)
+    a=plt.scatter(x1,y1)
     p9=plt.plot(x1,q9)
+    plt.subplot(2,2,4)
+    a=plt.scatter(x1,y1)
     p12=plt.plot(x1,q12)
-    plt.ioff()
-    return A3,A6,A9,A12,x3,x6,x9,x12,p3,p6,p9,p12
+    e=plt.show()
+    return A3,A6,A9,A12,x3,x6,x9,x12,p3,p6,p9,p12,e
     raise NotImplementedError("Problem 3 Incomplete")
 
 polynomial_fit()
