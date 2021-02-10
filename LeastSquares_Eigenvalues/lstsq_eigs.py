@@ -1,8 +1,8 @@
 # lstsq_eigs.py
 """Volume 1: Least Squares and Computing Eigenvalues.
-<Name>
-<Class>
-<Date>
+<Labib Zakaria>
+<MTH 420>
+<2/5/21>
 """
 
 # (Optional) Import functions from your QR Decomposition lab.
@@ -12,6 +12,8 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+import scipy as sp
+from scipy import linalg as la
 
 
 # Problem 1
@@ -26,26 +28,73 @@ def least_squares(A, b):
     Returns:
         x ((n, ) ndarray): The solution to the normal equations.
     """
+    Q,R=la.qr(A,mode="economic")
+    x=la.solve_triangular(R,np.transpose(Q)@b)
+    print(Q,R,x)
+    return x
     raise NotImplementedError("Problem 1 Incomplete")
-
+A=np.array([[np.pi**2,-np.pi,1],[(np.pi/2)**2,-np.pi/2,1],[0,0,1],[(np.pi/2)**2,np.pi/2,1],[np.pi**2,np.pi,1]])
+b=np.array([[-1],[0],[1],[0],[-1]])
+least_squares(A, b)
 # Problem 2
 def line_fit():
     """Find the least squares line that relates the year to the housing price
     index for the data in housing.npy. Plot both the data points and the least
     squares line.
     """
+    z=np.load('housing.npy')
+    print(z)
+    x1=z[:,0]
+    y1=z[:,1]
+    A=x1.reshape(-1,1)
+    b=y1.reshape(-1,1)
+    print(A,b)
+    c=np.ones((len(A),1))
+    A=np.column_stack((A,c))
+    print(A)
+    x=least_squares(A,b)
+    print(x)
+    plt.ion()
+    a=plt.scatter(x1,y1)
+    b=plt.plot(x[0]*x1+x[1])
+    plt.ioff()
+    return x,a,b
     raise NotImplementedError("Problem 2 Incomplete")
 
-
+line_fit()
 # Problem 3
 def polynomial_fit():
     """Find the least squares polynomials of degree 3, 6, 9, and 12 that relate
     the year to the housing price index for the data in housing.npy. Plot both
     the data points and the least squares polynomials in individual subplots.
     """
+    z=np.load('housing.npy')
+    x1=z[:,0]
+    y1=z[:,1]
+    A3=np.vander(x1,4)
+    A6=np.vander(x1,7)
+    A9=np.vander(x1,10)
+    A12=np.vander(x1,13)
+    x3=least_squares(A3,y1.reshape(-1,1))
+    x6=least_squares(A6,y1.reshape(-1,1))
+    x9=least_squares(A9,y1.reshape(-1,1))
+    x12=least_squares(A12,y1.reshape(-1,1))
+    q3=A3@x3
+    q6=A6@x6
+    q9=A9@x9
+    q12=A12@x12
+    print(A3,A6,A9,A12,x3,x6,x9,x12,q3,q6,q9,q12)
+    plt.ion()
+    a=plt.scatter(x1,y1)
+    p3=plt.plot(x1,q3)
+    p6=plt.plot(x1,q6)
+    p9=plt.plot(x1,q9)
+    p12=plt.plot(x1,q12)
+    plt.ioff()
+    return A3,A6,A9,A12,x3,x6,x9,x12,p3,p6,p9,p12
     raise NotImplementedError("Problem 3 Incomplete")
 
-
+polynomial_fit()
 def plot_ellipse(a, b, c, d, e):
     """Plot an ellipse of the form ax^2 + bx + cxy + dy + ey^2 = 1."""
     theta = np.linspace(0, 2*np.pi, 200)
