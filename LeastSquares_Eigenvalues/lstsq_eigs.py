@@ -74,7 +74,7 @@ def polynomial_fit():
     y1=z[:,1]
     for i in range(1,5):
         A=np.vander(x1,1+3*i)
-        x=least_squares(A,y1.reshape(-1,1))
+        x=la.lstsq(A,y1.reshape(-1,1))[0]
         q=A@x
         print(A,x,np.polyfit(x1,y1,3*i),q)
         f=plt.subplot(2,2,i)
