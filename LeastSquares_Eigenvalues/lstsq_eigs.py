@@ -72,33 +72,18 @@ def polynomial_fit():
     z=np.load('housing.npy')
     x1=z[:,0]
     y1=z[:,1]
-    A3=np.vander(x1,4)
-    A6=np.vander(x1,7)
-    A9=np.vander(x1,10)
-    A12=np.vander(x1,13)
-    x3=least_squares(A3,y1.reshape(-1,1))
-    x6=least_squares(A6,y1.reshape(-1,1))
-    x9=least_squares(A9,y1.reshape(-1,1))
-    x12=least_squares(A12,y1.reshape(-1,1))
-    q3=A3@x3
-    q6=A6@x6
-    q9=A9@x9
-    q12=A12@x12
-    print(A3,A6,A9,A12,x3,x6,x9,x12,q3,q6,q9,q12)
-    plt.subplot(2,2,1)
-    a=plt.scatter(x1,y1)
-    p3=plt.plot(x1,q3)
-    plt.subplot(2,2,2)
-    a=plt.scatter(x1,y1)
-    p6=plt.plot(x1,q6)
-    plt.subplot(2,2,3)
-    a=plt.scatter(x1,y1)
-    p9=plt.plot(x1,q9)
-    plt.subplot(2,2,4)
-    a=plt.scatter(x1,y1)
-    p12=plt.plot(x1,q12)
+    for i in range(1,5):
+        A=np.vander(x1,1+3*i)
+        x=least_squares(A,y1.reshape(-1,1))
+        q=A@x
+        print(A,x,np.polyfit(x1,y1,3*i),q)
+        f=plt.subplot(2,2,i)
+        plt.ion()
+        a=plt.scatter(x1,y1)
+        p=plt.plot(x1,q)
+        plt.ioff()
     e=plt.show()
-    return A3,A6,A9,A12,x3,x6,x9,x12,p3,p6,p9,p12,e
+    return A,x,q,a,p,e,f 
     raise NotImplementedError("Problem 3 Incomplete")
 
 polynomial_fit()
