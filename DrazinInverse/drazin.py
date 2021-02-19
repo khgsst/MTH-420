@@ -82,13 +82,13 @@ def drazin_inverse(A, tol=1e-4):
     T2,Q2,k2=la.schur(A,sort=g)
     U=np.column_stack((Q1[:,:k1],Q2[:,:(n-k1)]))
     UI=la.inv(U)
-    V=U@A@UI
+    V=UI@A@U
     Z=np.zeros((n,n))
     if k1!=0:
         MI=la.inv(V[:k1,:k1])
         Z[:k1,:k1]=MI
     P=U@Z@UI
-    print(P)
+    print("A^D="+str(P))
     return P 
     raise NotImplementedError("Problem 2 Incomplete")
 
@@ -113,20 +113,29 @@ def effective_resistance(A):
     """
     (n,n)=A.shape
     R=np.zeros((n,n))
-    I=np.zeros((n,n))+np.diag(np.diag(np.ones((n,n))))
     print("R="+str(R))
-    print("I="+str(I))
+    L=lap(A)+np.ones((n,n))/n
+    print("L="+str(L))
+    LD=drazin_inverse(L, tol=1e-4)
+    LI=la.inv(L)
+    print("L^D="+str(LD))
+    print("L^-1="+str(LI))
     for i in range(n):
-        L=lap(A)
-        print(L)
-        L[i,:]=I[i,:]
-        LD=drazin_inverse(L, tol=1e-4)
-        R[i,:]=LD[i,:]
+        for j in range(n):
+            R[i,j]=LD[i,i]+LD[j,j]-2*LD[i,j]
+        print("R0i="+str(R))
         R[i,i]=0
-    print(R)
-    return R
+        print("Ri="+str(R))
+    print("R="+str(R))
+    return R 
     raise NotImplementedError("Problem 3 Incomplete")
 A=np.array([[0,1],[1,0]])
+effective_resistance(A)
+A=np.array([[0,2],[2,0]])
+effective_resistance(A)
+A=np.array([[0,1,1],[1,0,1],[1,1,0]])
+effective_resistance(A)
+A=np.array([[0,1,0,0],[1,0,1,0],[0,1,0,1],[0,0,1,0]])
 effective_resistance(A)
 # Problems 4 and 5
 class LinkPredictor:
