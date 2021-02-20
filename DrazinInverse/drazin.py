@@ -117,9 +117,7 @@ def effective_resistance(A):
     L=lap(A)+np.ones((n,n))/n
     print("L="+str(L))
     LD=drazin_inverse(L, tol=1e-4)
-    LI=la.inv(L)
     print("L^D="+str(LD))
-    print("L^-1="+str(LI))
     for i in range(n):
         for j in range(n):
             R[i,j]=LD[i,i]+LD[j,j]-2*LD[i,j]
