@@ -80,7 +80,7 @@ def prob3():
     #plt.ion()
     plt.plot(x,f,'m--',linewidth=4,label="1/(x-1),x<1")
     plt.plot(y,g,'m--',linewidth=4,label="1/(x-1),x>1")
-    #plt.ioff()
+    #plt.ioff() 
     plt.xlim(-2,6)
     plt.ylim(-6,6)
     plt.legend(loc="upper left")
