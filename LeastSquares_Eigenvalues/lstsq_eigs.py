@@ -56,7 +56,7 @@ def line_fit():
     print(x)
     plt.ion()
     a=plt.scatter(x1,y1)
-    b=plt.plot(x[0]*x1+x[1])
+    b=plt.plot(x1,x[0]*x1+x[1])
     plt.ioff()
     e=plt.show()
     return x,a,b,e
