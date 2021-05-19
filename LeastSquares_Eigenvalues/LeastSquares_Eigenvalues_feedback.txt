@@ -17,3 +17,27 @@ Total score: 44/50 = 88.0%
 
 -------------------------------------------------------------------------------
 
+03/02/21 18:15
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (15 points):
+Score += 15
+
+Problem 3 (20 points):
+Score += 20
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 50/50 = 100.0%
+
+Excellent!
+
+
+Comments:
+	I changed line 59 to b=plt.plot(x1,x[0]*x1+x[1])
+
+-------------------------------------------------------------------------------
+
