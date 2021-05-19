@@ -53,10 +53,10 @@ def line_fit():
     A=np.column_stack((A,c))
     print(A)
     x=least_squares(A,b)
-    print(x)
+    print("x="+str(x))
     plt.ion()
     a=plt.scatter(x1,y1)
-    b=plt.plot(x[0]*x1+x[1])
+    b=plt.plot(x1,x[0]*x1+x[1])
     plt.ioff()
     e=plt.show()
     return x,a,b,e
