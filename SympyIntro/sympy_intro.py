@@ -4,7 +4,7 @@
 <Class>
 <Date>
 """
-
+import sympy as sy
 
 # Problem 1
 def prob1():
@@ -14,7 +14,11 @@ def prob1():
 
     Make sure that the fractions remain symbolic.
     """
+    x, y= sy.symbols('x y')
+    expr=sy.Rational(2, 5)*sy.exp(x**2-y)*sy.cosh(x+y)+sy.Rational(3, 7)*sy.log(x*y+1)
+    print(expr)
     raise NotImplementedError("Problem 1 Incomplete")
+prob1()
 
 
 # Problem 2
@@ -23,7 +27,15 @@ def prob2():
 
         product_(i=1 to 5)[ sum_(j=i to 5)[j(sin(x) + cos(x))] ]
     """
+    x,i,j=sy.symbols('x i j')
+    expr=sy.sin(x)+sy.cos(x)
+    expr2=sy.summation(j*expr, (j, i, 5))
+    expr3=sy.product(expr2,(i,1,5))
+    expr4=sy.simplify(expr3)
+    print(expr3)
+    print(expr4)
     raise NotImplementedError("Problem 2 Incomplete")
+prob2()
 
 
 # Problem 3
